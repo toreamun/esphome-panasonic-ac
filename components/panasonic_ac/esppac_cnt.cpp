@@ -21,6 +21,8 @@ void PanasonicACCNT::loop() {
   {
     log_packet(this->rx_buffer_);
 
+    publish("panasonic/rx", format_hex_pretty(data).c_str());
+
     if (!verify_packet())  // Verify length, header, counter and checksum
       return;
 

@@ -6,6 +6,7 @@
 #include "esphome/components/switch/switch.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/core/component.h"
+#include "esphome/components/mqtt/custom_mqtt_device.h"
 
 namespace esphome {
 
@@ -30,7 +31,7 @@ enum class ACType {
   CZTACG1   // Old module (via CN-CNT)
 };
 
-class PanasonicAC : public Component, public uart::UARTDevice, public climate::Climate {
+class PanasonicAC : public Component, public uart::UARTDevice, public climate::Climate, public mqtt:CustomMQTTDevice {
  public:
   void set_outside_temperature_sensor(sensor::Sensor *outside_temperature_sensor);
   void set_vertical_swing_select(select::Select *vertical_swing_select);
