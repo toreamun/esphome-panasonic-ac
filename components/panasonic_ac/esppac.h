@@ -31,7 +31,7 @@ enum class ACType {
   CZTACG1   // Old module (via CN-CNT)
 };
 
-class PanasonicAC : public Component, public uart::UARTDevice, public climate::Climate, public mqtt:CustomMQTTDevice {
+class PanasonicAC : public Component, public uart::UARTDevice, public climate::Climate, public mqtt::CustomMQTTDevice {
  public:
   void set_outside_temperature_sensor(sensor::Sensor *outside_temperature_sensor);
   void set_vertical_swing_select(select::Select *vertical_swing_select);
